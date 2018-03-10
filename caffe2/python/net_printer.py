@@ -355,7 +355,8 @@ def print_step(text, step):
         substeps = step.Substeps() + [step.get_net(n) for n in proto.network]
         for substep in substeps:
             sub_proto = (
-                substep.Proto() if isinstance(substep, ExecutionStep) else None)
+                substep.Proto() if
+                isinstance(substep, ExecutionStep) else None)
             if sub_proto is not None and sub_proto.run_every_ms:
                 substep_ctx = call(
                     'reporter',
