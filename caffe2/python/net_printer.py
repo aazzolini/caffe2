@@ -118,7 +118,8 @@ def analyze_step(analyzer, step):
                 if proto.should_stop_blob:
                     analyzer.need_blob(proto.should_stop_blob)
             if proto.concurrent_substeps:
-                new_blobs = set(viewkeys(ws_in)) - set(viewkeys(analyzer.workspace))
+                new_blobs = set(viewkeys(ws_in)) - set(
+                    viewkeys(analyzer.workspace))
                 assert len(all_new_blobs & new_blobs) == 0, (
                     'Error: Blobs created by multiple parallel steps: %s' % (
                         ', '.join(all_new_blobs & new_blobs)))
